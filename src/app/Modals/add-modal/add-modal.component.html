@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Contact</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="addForm" novalidate>
+    <div class="form">
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" formControlName="name" placeholder="Name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Surname</ion-label>
+        <ion-input type="text" formControlName="surName" placeholder="surName" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input type="email" formControlName="email" placeholder="Email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Adrress</ion-label>
+        <ion-input type="text" formControlName="address" placeholder="Address" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Number</ion-label>
+        <ion-input type="number" formControlName="cellphone" placeholder="Nu" required></ion-input>
+      </ion-item>
+    </div>
+  </form>
+</ion-content>

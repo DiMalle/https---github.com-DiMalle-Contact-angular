@@ -1,0 +1,19 @@
+<ion-content style="border-left: 7px solid #ff987b;">
+  <div class="header">
+    <h3>Happy to see you </h3>
+    <h1>Create a <br> New Account</h1>
+  </div>
+  <form [formGroup]="createForm" novalidate>
+    <div class="form">
+      <ion-input type="email" name="email" formControlName="email" placeholder="Email" required></ion-input>
+      <ion-input formControlName="username" name="username" placeholder="Username" required></ion-input>
+      <ion-input formControlName="password" name="password" type="password" placeholder="Password" required></ion-input>
+    </div>
+    <div class="button button-register">
+      <a (click)="onSubmit()"> Register <ion-icon name="chevron-forward-outline"></ion-icon></a>
+    </div>
+  </form>
+  <div class="footer register-footer">
+    <h3 routerLink="/login">Do you already have an account ? <span>Login here</span></h3>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contact List</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)=" onOpenModalAdd()">Add</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div *ngFor="let contact of contacts" id="faq">
+    <ul>
+      <li>
+        <input type="checkbox" checked>
+        <i></i>
+        <h2>{{contact.name}}</h2>
+        <h3>
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item">
+              <a class="social-link">
+                <ion-icon name="call"></ion-icon>
+              </a>
+            <li class="list-inline-item"><a class="social-link">
+                <ion-icon name="navigate-sharp"></ion-icon>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="list-inline-item"><a class="social-link" (click)="onOpenModalEdit()">
+                <ion-icon name="information-sharp"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </h3>
+      </li>
+    </ul>
+  </div>
