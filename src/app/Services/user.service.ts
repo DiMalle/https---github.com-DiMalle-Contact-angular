@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public RegisterUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.ApiServer}/api/User`, user);
+    return this.http.post<User>(`${this.ApiServer}/api/register`, user);
   }
   public LoginUser(user: Login): Observable<Login> {
     return this.http.post<Login>(`${this.ApiServer}/api/login`, user);

@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/interface/user';
 import { UserService } from 'src/app/Services/user.service';
 
@@ -13,7 +14,7 @@ export class RegisterPage implements OnInit {
   user: User;
   registered: any;
   createForm: FormGroup;
-  constructor(private service: UserService, public fb: FormBuilder) { }
+  constructor(private service: UserService, public fb: FormBuilder, private route: Router) { }
 
   ngOnInit() {
     this.inForm();
@@ -33,6 +34,7 @@ export class RegisterPage implements OnInit {
       data => {
         this.registered = data;
         console.log("registration", this.registered);
+        this.route.navigate(['/login'])
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
