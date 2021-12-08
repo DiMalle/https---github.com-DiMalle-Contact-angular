@@ -54,6 +54,8 @@ export class AddModalComponent implements OnInit {
   // }
 
   public addContact() {
+    console.log("this", this.addForm.value);
+
     const userString = localStorage.getItem("user");
     if (userString === null || userString === undefined)
       return;
