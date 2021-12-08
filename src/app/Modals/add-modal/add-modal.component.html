@@ -34,7 +34,8 @@
       </ion-item>
 
 
-      <ion-button type="button" (click)="addContact()" shape="round" expand="full" size="large">Add Contact
+      <ion-button [disabled]="addForm?.invalid" type="button" (click)="addContact()" shape="round" expand="full"
+        size="large">Add Contact
       </ion-button>
     </div>
   </form>
