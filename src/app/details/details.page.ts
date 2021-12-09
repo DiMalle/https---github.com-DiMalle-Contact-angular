@@ -34,10 +34,6 @@ export class DetailsPage implements OnInit {
   }
   public detailById(contactId) {
 
-
-    console.log('cccc', contactId);
-
-
     this.detailService.getContactById(contactId).subscribe(
       response => {
         this.contact = response;
