@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { DetailContact } from '../interface/detail-contact';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,8 @@ export class DetailService {
   }
   public getContactById(contactId: number): Observable<any> {
     return this.http.get<any>(`${this.apiServer}/contact/find/${contactId}`);
+  }
+  public addDetails(details: DetailContact): Observable<any> {
+    return this.http.post<any>(`${this.apiServer}/contact/save/details`, details);
   }
 }

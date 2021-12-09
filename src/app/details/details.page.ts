@@ -1,7 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 import { DetailContact } from '../interface/detail-contact';
+import { AddDetailsComponent } from '../Modals/add-details/add-details.component';
 import { DetailService } from '../Services/detail.service';
 
 @Component({
@@ -12,8 +16,11 @@ import { DetailService } from '../Services/detail.service';
 export class DetailsPage implements OnInit {
   public contactId: any;
   public detailsContact: DetailContact[];
-  public contact: any[];
-  constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService) { }
+  public contact: any;
+  public addContact: any[];
+  public IMAGE_URL: string = environment.basedApiServer + '/contact/file/';
+  public emptyImage: string = 'assets/no-image.jpg';
+  constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
 
@@ -22,13 +29,18 @@ export class DetailsPage implements OnInit {
         this.contactId = data['contact'];
         console.log('contact ID===', this.contactId);
 
+
         this.detailById(this.contactId);
         this.requestDetails(this.contactId);
       }
     )
-
   }
-
+  public async onOpenModalNew() {
+    const modal = await this.modalCtrl.create({
+      component: AddDetailsComponent
+    })
+    await modal.present();
+  }
   public back() {
     this.route.navigate(['/all']);
   }
@@ -56,5 +68,4 @@ export class DetailsPage implements OnInit {
       }
     );
   }
-
 }
