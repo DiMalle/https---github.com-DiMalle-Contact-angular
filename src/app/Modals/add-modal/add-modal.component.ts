@@ -65,6 +65,7 @@ export class AddModalComponent implements OnInit {
     this.contactService.addContactWIthImageAndId(this.user.id, this.contact).subscribe(
       data => {
         console.log("contact added to the list =>", data);
+        this.addForm.reset();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

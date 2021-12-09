@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { Contact } from '../interface/contact';
@@ -20,11 +21,12 @@ export class AllPage implements OnInit {
   public IMAGE_URL: string = environment.basedApiServer + '/contact/file/';
   public emptyImage: string = 'assets/no-image.jpg';
 
-  constructor(private contactService: ContactService, private modalCtrl: ModalController) { }
+  constructor(private contactService: ContactService, private modalCtrl: ModalController, private route: Router) { }
 
   ngOnInit() {
     this.getContact();
   }
+
   public async onOpenModalEdit() {
     const modal = await this.modalCtrl.create({
       component: EditModalComponent
@@ -61,5 +63,11 @@ export class AllPage implements OnInit {
         alert(error.message);
       }
     );
+  }
+  // public goToDetails(contact) {
+  // this.route.navigateByUrl('/details?contact=' + contact.id);
+  // }
+  public goToDetails(contact) {
+    this.route.navigateByUrl('details?contact=' + contact.id)
   }
 }
