@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <form [formGroup]="addForm">
+    <form [formGroup]="addForm" novalidate>
       <ion-item>
         <select class="form-select" id="type" formControlName="type" name="type" aria-label="Default select example">
           <option>Perso</option>
@@ -19,10 +19,10 @@
       </ion-item>
       <ion-item>
         <ion-label>Number</ion-label>
-        <ion-input type="text" formControlName="number" name="number" id="number" placeholder="Numero" required>
+        <ion-input type="number" formControlName="number" name="number" id="number" placeholder="Numero" required>
         </ion-input>
       </ion-item>
-      <ion-button (click)="addDetails()">Add Number</ion-button>
+      <ion-button type="button" [disabled]="addForm?.invalid" (click)="addDetails()">Add Number</ion-button>
     </form>
   </ion-card>
 </ion-content>

@@ -37,8 +37,11 @@ export class DetailsPage implements OnInit {
   }
   public async onOpenModalNew() {
     const modal = await this.modalCtrl.create({
-      component: AddDetailsComponent
-    })
+      component: AddDetailsComponent,
+      componentProps: {
+        contact: this.contact
+      }
+    });
     await modal.present();
   }
   public back() {

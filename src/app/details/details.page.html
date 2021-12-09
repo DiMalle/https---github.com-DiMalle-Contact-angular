@@ -24,18 +24,23 @@
     </ion-buttons>
     <ion-card-content>
       <ion-item>
-        <ion-label>Email</ion-label>
+        <ion-label>Email :</ion-label>
         <ion-input type="text" ngModel="{{contact?.email}}" placeholder="Email" required disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Address</ion-label>
+        <ion-label>Address :</ion-label>
         <ion-input type="text" ngModel="{{contact?.address}}" placeholder="Address" required disabled></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Main Number</ion-label>
+        <ion-label>Main Number :</ion-label>
         <ion-input type="text" ngModel="{{contact?.cellphone}}" placeholder="Numero" required disabled></ion-input>
       </ion-item>
-
+      <ion-item *ngFor="let contact of detailsContact">
+        <ion-label>{{contact.type}} :</ion-label>
+        <ion-input type="text" disabled>
+          {{contact.number}}
+        </ion-input>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>

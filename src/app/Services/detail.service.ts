@@ -17,7 +17,7 @@ export class DetailService {
   public getContactById(contactId: number): Observable<any> {
     return this.http.get<any>(`${this.apiServer}/contact/find/${contactId}`);
   }
-  public addDetails(details: DetailContact): Observable<any> {
-    return this.http.post<any>(`${this.apiServer}/contact/save/details`, details);
+  public addDetails(details: DetailContact): Observable<DetailContact> {
+    return this.http.post<DetailContact>(`${this.apiServer}/detail/save/details`, details);
   }
 }
