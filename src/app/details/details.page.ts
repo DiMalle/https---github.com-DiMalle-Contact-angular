@@ -6,6 +6,7 @@ import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { DetailContact } from '../interface/detail-contact';
 import { AddDetailsComponent } from '../Modals/add-details/add-details.component';
+import { EditDetailComponent } from '../Modals/edit-detail/edit-detail.component';
 import { DetailService } from '../Services/detail.service';
 
 @Component({
@@ -34,6 +35,16 @@ export class DetailsPage implements OnInit {
         this.requestDetails(this.contactId);
       }
     )
+  }
+  public async onOpenModalEdit() {
+    const edit = await this.modalCtrl.create({
+      component: EditDetailComponent,
+      componentProps: {
+        detail: this.detailsContact,
+        contact: this.contact
+      }
+    });
+    await edit.present();
   }
   public async onOpenModalNew() {
     const modal = await this.modalCtrl.create({
@@ -70,5 +81,16 @@ export class DetailsPage implements OnInit {
         alert(error.message);
       }
     );
+  }
+  public deleteDetail(id) {
+    this.detailService.deleteDetailById(id).subscribe(
+      data => {
+        console.log("deleted", data);
+        this.requestDetails(this.contactId);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
   }
 }

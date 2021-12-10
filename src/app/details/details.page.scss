@@ -2,9 +2,6 @@ ion-button{
     font-weight: bold;
     font-style: italic;
 }
-ion-button:hover{
-    background-color: grey;
-}
 ion-label{
  font-size: medium;
  font-weight: bold;
@@ -27,4 +24,7 @@ ion-card-title{
 ion-title{
     font-weight: bold;
     font-style: italic;
+}
+ion-icon{
+    margin: 2px;
 }

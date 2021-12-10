@@ -40,6 +40,16 @@
         <ion-input type="text" disabled>
           {{contact.number}}
         </ion-input>
+        <ion-buttons>
+          <ion-button (click)="onOpenModalEdit()">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="deleteDetail(contact!.id)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
       </ion-item>
     </ion-card-content>
   </ion-card>

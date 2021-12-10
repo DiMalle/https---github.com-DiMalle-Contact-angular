@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update Number</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <form [formGroup]="editForm" novalidate>
+      <ion-item>
+        <select class="form-select" id="type" formControlName="type" name="type" aria-label="Default select example">
+          <option>Perso</option>
+          <option>Mobile</option>
+          <option>Fix</option>
+          <option>Pro</option>
+        </select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Number</ion-label>
+        <ion-input type="number" formControlName="number" name="number" id="number" placeholder="Numero" required>
+        </ion-input>
+      </ion-item>
+      <ion-input type="hidden" id="id" formControlName="id" name="id" placeholder="id">
+      </ion-input>
+      <ion-button type="button" [disabled]="editForm?.invalid" (click)="onUpdateDetail()">Add Number</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

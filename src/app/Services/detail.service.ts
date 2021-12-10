@@ -20,4 +20,10 @@ export class DetailService {
   public addDetails(details: DetailContact): Observable<DetailContact> {
     return this.http.post<DetailContact>(`${this.apiServer}/detail/save/details`, details);
   }
+  public deleteDetailById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServer}/detail/deletion/${id}`);
+  }
+  public updateDetails(details: DetailContact): Observable<DetailContact> {
+    return this.http.put<DetailContact>(`${this.apiServer}/detail/update/detail`, details);
+  }
 }
