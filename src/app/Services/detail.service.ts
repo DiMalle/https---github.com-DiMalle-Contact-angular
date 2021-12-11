@@ -26,4 +26,9 @@ export class DetailService {
   public updateDetails(details: DetailContact): Observable<DetailContact> {
     return this.http.put<DetailContact>(`${this.apiServer}/detail/update/detail`, details);
   }
+  /*
+  public getDetail(detail: number): Observable<any> {
+    return this.http.get<any>(`${this.apiServer}/detail/fetch/${detail}`);
+  }
+  */
 }

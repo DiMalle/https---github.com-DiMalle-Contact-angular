@@ -12,15 +12,21 @@ import { DetailService } from 'src/app/Services/detail.service';
 })
 export class EditDetailComponent implements OnInit {
   public update: DetailContact;
-  detail;
+  public infoContact: DetailContact;
+  localContact;
+  //detail;
   contact;
   public editForm: FormGroup;
   constructor(private modal: ModalController, private detailService: DetailService, private formBuild: FormBuilder) { }
 
   ngOnInit() {
-    console.log(this.detail);
+    console.log("nothing imported");
+
+    // console.log(this.detail);
+
     this.formCtrl();
   }
+
   public formCtrl() {
     this.editForm = this.formBuild.group({
       type: ['', Validators.required],
@@ -28,6 +34,7 @@ export class EditDetailComponent implements OnInit {
       id: ['',]
     })
   }
+
   public dismissModal() {
     this.modal.dismiss();
   }
