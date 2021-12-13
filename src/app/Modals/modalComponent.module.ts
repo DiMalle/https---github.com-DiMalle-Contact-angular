@@ -6,6 +6,7 @@ import { AddModalComponent } from "./add-modal/add-modal.component";
 import { EditModalComponent } from "./edit-modal/edit-modal.component";
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { EditDetailComponent } from './edit-detail/edit-detail.component';
+import { DetailsPageModule } from '../details/details.module';
 
 
 

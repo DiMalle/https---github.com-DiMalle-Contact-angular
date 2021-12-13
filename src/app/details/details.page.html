@@ -35,13 +35,13 @@
         <ion-label>Main Number :</ion-label>
         <ion-input type="text" ngModel="{{contact?.cellphone}}" placeholder="Numero" required disabled></ion-input>
       </ion-item>
-      <ion-item *ngFor="let contact of detailsContact">
+      <ion-item *ngFor="let contact of detailsContact; let i = index ">
         <ion-label>{{contact.type}} :</ion-label>
         <ion-input type="text" disabled>
           {{contact.number}}
         </ion-input>
         <ion-buttons>
-          <ion-button (click)="onOpenModalEdit()">
+          <ion-button (click)="onOpenModalEdit(contact , i)">
             <ion-icon name="create"></ion-icon>
           </ion-button>
         </ion-buttons>

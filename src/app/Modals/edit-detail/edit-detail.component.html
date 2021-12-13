@@ -8,9 +8,9 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <form [formGroup]="editForm" novalidate>
+    <form #editForm="ngForm" novalidate>
       <ion-item>
-        <select class="form-select" id="type" formControlName="type" name="type" aria-label="Default select example">
+        <select class="form-select" id="type" ngModel="{{info?.type}}" name="type" aria-label="Default select example">
           <option>Perso</option>
           <option>Mobile</option>
           <option>Fix</option>
@@ -19,12 +19,12 @@
       </ion-item>
       <ion-item>
         <ion-label>Number</ion-label>
-        <ion-input type="number" formControlName="number" name="number" id="number" placeholder="Numero" required>
+        <ion-input type="number" ngModel="{{info?.number}}" name="number" id="number" placeholder="Numero" required>
         </ion-input>
       </ion-item>
-      <ion-input type="hidden" id="id" formControlName="id" name="id" placeholder="id">
+      <ion-input type="hidden" id="id" ngModel="{{info?.id}}" name="id" placeholder="id">
       </ion-input>
-      <ion-button type="button" [disabled]="editForm?.invalid" (click)="onUpdateDetail()">Add Number</ion-button>
+      <ion-button type="button" (click)="onUpdateDetail(editForm)">Add Number</ion-button>
     </form>
   </ion-card>
 </ion-content>

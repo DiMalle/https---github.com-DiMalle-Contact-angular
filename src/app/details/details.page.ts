@@ -2,8 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
+import { Contact } from '../interface/contact';
 import { DetailContact } from '../interface/detail-contact';
 import { AddDetailsComponent } from '../Modals/add-details/add-details.component';
 import { EditDetailComponent } from '../Modals/edit-detail/edit-detail.component';
@@ -21,7 +22,7 @@ export class DetailsPage implements OnInit {
   public addContact: any[];
   public IMAGE_URL: string = environment.basedApiServer + '/contact/file/';
   public emptyImage: string = 'assets/no-image.jpg';
-  constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService, private modalCtrl: ModalController) { }
+  constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService, private modalCtrl: ModalController, private alert: AlertController) { }
 
   ngOnInit() {
 
@@ -36,11 +37,20 @@ export class DetailsPage implements OnInit {
       }
     )
   }
-  public async onOpenModalEdit() {
+  public async onOpenAlert() {
+    const alt = await this.alert.create({
+
+    })
+  }
+  public async onOpenModalEdit(infoContact: DetailContact, index: number) {
+    /*
+        console.log("message contact", infoContact);
+        console.log("index contact", index);
+    */
     const edit = await this.modalCtrl.create({
       component: EditDetailComponent,
       componentProps: {
-        detail: this.detailsContact,
+        info: infoContact,
         contact: this.contact
       }
     });
