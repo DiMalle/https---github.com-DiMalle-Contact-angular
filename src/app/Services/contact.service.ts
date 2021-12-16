@@ -26,7 +26,7 @@ export class ContactService {
   public addToFavorite(contactId) {
     return this.http.get(this.ApiServer + "/contact/favorite/" + contactId)
   }
-  public showImage(imageName: string): Observable<any> {
-    return this.http.get<any>(`${this.ApiServer}/contact/file/${imageName}`)
-  }
+  /*   public showImage(imageName: string): Observable<any> {
+      return this.http.get<any>(`${this.ApiServer}/contact/file/${imageName}`)
+    } */
 }
