@@ -62,7 +62,7 @@ export class AllPage implements OnInit {
   public deleteContact(id: number) {
     this.contactService.deleteContactByID(id).subscribe(
       (response: void) => {
-        console.log("deleted", response);
+        console.log("Element deleted");
         this.getContact();
       },
       (error: HttpErrorResponse) => {
