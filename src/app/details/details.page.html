@@ -15,6 +15,7 @@
 <ion-content fullscreen>
   <ion-card>
     <img [src]="contact?.imageUrl? IMAGE_URL + contact?.imageUrl: emptyImage" alt="">
+    <!-- <img [src]="contact?.imageUrl | image" alt=""> -->
     <ion-card-header>
       <ion-card-subtitle>{{contact?.name}}</ion-card-subtitle>
       <ion-card-title>{{contact?.surName}}</ion-card-title>

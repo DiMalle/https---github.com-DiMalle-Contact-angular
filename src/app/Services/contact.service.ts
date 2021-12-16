@@ -21,6 +21,12 @@ export class ContactService {
     return this.http.delete<void>(`${this.ApiServer}/contact/delete/${id}`);
   }
   public updateContact(contact: Contact): Observable<Contact> {
-    return this.http.put<Contact>(`${this.ApiServer}/Contact/update`, contact);
+    return this.http.put<Contact>(`${this.ApiServer}/contact/update`, contact);
+  }
+  public addToFavorite(contactId) {
+    return this.http.get(this.ApiServer + "/contact/favorite/" + contactId)
+  }
+  public showImage(imageName: string): Observable<any> {
+    return this.http.get<any>(`${this.ApiServer}/contact/file/${imageName}`)
   }
 }

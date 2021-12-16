@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 import { AlertController, ModalController } from '@ionic/angular';
@@ -16,12 +16,14 @@ import { DetailService } from '../Services/detail.service';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
+  @Input() addedToFavorite: boolean
   public contactId: any;
   public detailsContact: DetailContact[];
-  public contact: any;
+  public contact: Contact;
   public addContact: any[];
   public IMAGE_URL: string = environment.basedApiServer + '/contact/file/';
   public emptyImage: string = 'assets/no-image.jpg';
+  contactService: any;
   constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService, private modalCtrl: ModalController, private alert: AlertController) { }
 
   ngOnInit() {
@@ -36,11 +38,6 @@ export class DetailsPage implements OnInit {
         this.requestDetails(this.contactId);
       }
     )
-  }
-  public async onOpenAlert() {
-    const alt = await this.alert.create({
-
-    })
   }
   public async onOpenModalEdit(infoContact: DetailContact, index: number) {
     /*
@@ -102,5 +99,23 @@ export class DetailsPage implements OnInit {
         alert(error.message);
       }
     )
+  }
+  handleAddToFavorite(contact: Contact) {
+    this.contactService.addToFavorite(contact.id).subscribe((res) => {
+
+
+      console.log("****************resp object***********", res);
+      console.log("***************************", contact.id);
+      this.addedToFavorite = true;
+      this.requestDetails(this.contactId);
+    })
+  }
+  handleRemoveFromFavorite(contact: Contact) {
+    this.contactService.addToFavorite(contact.id).subscribe((res) => {
+      console.log("********************resp object*****", res);
+      console.log("********************resp object*****", contact.id);
+      this.addedToFavorite = false;
+      this.requestDetails(this.contactId);
+    })
   }
 }

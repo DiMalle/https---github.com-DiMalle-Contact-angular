@@ -9,6 +9,15 @@
 <ion-content class="ion-padding">
   <form [formGroup]="updateForm" novalidate>
     <div class="form">
+      <img class="imageClass" (click)="takepic()"
+        [src]="editContact?.imageUrl? IMAGE_URL + editContact?.imageUrl: emptyImage" alt="" />
+      <!-- <div class="img-pick" (click)="takepic()">
+        <div *ngIf="!selectedImage" class="no-img pointer">
+          <span class="text">Selectionner une Image</span>
+        </div>
+        <div *ngIf="selectedImage" [style.backgroundImage]="'url(' + selectedImage + ')'" class="img-bg">
+        </div>
+      </div> -->
       <ion-item>
         <ion-label position="floating">Name</ion-label>
         <ion-input type="text" formControlName="name" placeholder="Name" required></ion-input>
@@ -28,12 +37,10 @@
       <ion-item>
         <ion-label position="floating">Number</ion-label>
         <ion-input type="number" formControlName="cellphone" placeholder="Number" required></ion-input>
+        <input type="hidden" formControlName="id" name="id" id="id" placeholder="email">
+        <input type="hidden" formControlName="favorite" name="favorite" id="favorite" placeholder="favorite">
+        <input type="hidden" formControlName="contactCode" name="contactCode" placeholder="name" id="contactCode">
       </ion-item>
-      <ion-item>
-
-      </ion-item>
-
-
       <ion-button [disabled]="updateForm?.invalid" type="button" (click)="onUpdate()" shape="round" expand="full"
         size="large">Save Changes
       </ion-button>

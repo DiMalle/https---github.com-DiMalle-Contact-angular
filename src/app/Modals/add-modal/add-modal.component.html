@@ -9,6 +9,14 @@
 <ion-content class="ion-padding">
   <form [formGroup]="addForm" novalidate>
     <div class="form">
+      <!--<img class="imageClass" (click)="takepic()" [src]="imageData | image" alt="" />-->
+      <div class="img-pick" (click)="takepic()">
+        <div *ngIf="!selectedImage" class="no-img pointer">
+          <span class="text">Selectionner une Image</span>
+        </div>
+        <div *ngIf="selectedImage" [style.backgroundImage]="'url(' + selectedImage + ')'" class="img-bg">
+        </div>
+      </div>
       <ion-item>
         <ion-label position="floating">Name</ion-label>
         <ion-input type="text" formControlName="name" placeholder="Name" required></ion-input>
@@ -29,11 +37,6 @@
         <ion-label position="floating">Number</ion-label>
         <ion-input type="number" formControlName="cellphone" placeholder="Number" required></ion-input>
       </ion-item>
-      <ion-item>
-
-      </ion-item>
-
-
       <ion-button [disabled]="addForm?.invalid" type="button" (click)="addContact()" shape="round" expand="full"
         size="large">Add Contact
       </ion-button>

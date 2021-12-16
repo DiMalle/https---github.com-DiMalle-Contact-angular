@@ -4,3 +4,40 @@ ion-button{
     font-style: italic;
     font-weight: bold;
 }
+.img-pick {
+    max-width: 230px;
+    border-radius: 4px;
+    border: 1px solid #F60;
+    height: 140px;
+    padding: 6px;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
+  }
+  
+  .img-pick .no-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    background-position: center;
+    background-size:contain;
+  }
+  
+  .img-pick .no-img .text {
+    text-align: center;
+  }
+  
+  .img-pick .img-bg {
+    height: 100%;
+    width: 200px;
+    border-radius: 4px;
+    background-position: center;
+    background-size: contain;
+  }

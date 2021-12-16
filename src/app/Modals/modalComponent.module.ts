@@ -6,7 +6,7 @@ import { AddModalComponent } from "./add-modal/add-modal.component";
 import { EditModalComponent } from "./edit-modal/edit-modal.component";
 import { AddDetailsComponent } from './add-details/add-details.component';
 import { EditDetailComponent } from './edit-detail/edit-detail.component';
-import { DetailsPageModule } from '../details/details.module';
+import { SharedModule } from './shared.module';
 
 
 
@@ -14,6 +14,6 @@ import { DetailsPageModule } from '../details/details.module';
 
     declarations: [EditModalComponent, AddModalComponent, AddDetailsComponent, EditDetailComponent],
     exports: [EditModalComponent, AddModalComponent, AddDetailsComponent, EditDetailComponent],
-    imports: [ReactiveFormsModule, FormsModule, IonicModule, CommonModule]
+    imports: [ReactiveFormsModule, FormsModule, IonicModule, CommonModule, SharedModule]
 })
 export class ModalModule { }

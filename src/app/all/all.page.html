@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Contact List</ion-title>
+    <ion-title>Contacts</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -10,30 +10,28 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-  <div *ngFor="let contact of contacts" id="faq">
-    <ul>
-      <li>
-        <input type="checkbox" checked>
-        <i></i>
-        <h2 (click)="goToDetails(contact)">{{contact.name}}</h2>
-        <h3>
-          <ion-item>
-            <a class="social-link">
-              <ion-icon name="call"></ion-icon>
-            </a>
-            <a class="social-link">
-              <ion-icon name="navigate-sharp"></ion-icon>
-            </a>
-
-            <a class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-
-            <a class="social-link" (click)="onOpenModalEdit()">
-              <ion-icon name="information-sharp"></ion-icon>
-            </a>
-          </ion-item>
-        </h3>
-      </li>
-    </ul>
+  <ion-list-header> Contact List </ion-list-header>
+  <div *ngFor="let contact of (contacts | sort)">
+    <h2>
+      <ion-list>
+        <ion-item>
+          <ion-avatar slot="start"> <img [src]="contact?.imageUrl? IMAGE_URL + contact?.imageUrl: emptyImage" alt="">
+          </ion-avatar>
+          <ion-label>
+            <h2 (click)="goToDetails(contact)">{{contact.name}}<h3>{{contact.surName}}</h3>
+            </h2>
+          </ion-label>
+          <ion-buttons>
+            <ion-button (click)="onOpenModalEdit(contact)">
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons>
+            <ion-button (click)="deleteContact(contact!.id)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+    </h2>
   </div>

@@ -1,0 +1,14 @@
+create table deplacement ( depnum varchar(255) , vildep varchar(255), vilarrive varchar(255), carnum varchar(255), numtransp varchar(255));
+INSERT INTO deplacement VALUES ('D001','Segou','Bamako','C002','T005');
+INSERT INTO deplacement VALUES ('D002','Bamako','Sikasso','C001','T004);
+INSERT INTO deplacement VALUES ('D003','Mopti','Bamako','C006','T004);
+INSERT INTO deplacement VALUES ('D004','Sikasso','Koutiala','C003','T003');
+INSERT INTO deplacement VALUES ('D005','Bamako','Sikasso','C004','T001');
+INSERT INTO deplacement VALUES ('D006','Kayes','Bamako','C004','T001');
+INSERT INTO deplacement VALUES ('D007','Koutiala','Bougouni','C003','T003');
+INSERT INTO deplacement VALUES ('D008','Sikasso','Bamako','C001','T002');
+INSERT INTO deplacement VALUES ('D009','Mopti','Bamako','C003','T001');
+
+
+
+M1@ista@_!

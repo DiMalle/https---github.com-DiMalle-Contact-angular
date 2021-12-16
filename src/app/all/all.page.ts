@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
@@ -27,9 +28,13 @@ export class AllPage implements OnInit {
     this.getContact();
   }
 
-  public async onOpenModalEdit() {
+  public async onOpenModalEdit(contact: Contact) {
     const modal = await this.modalCtrl.create({
-      component: EditModalComponent
+      component: EditModalComponent,
+      componentProps: {
+        editContact: contact,
+      }
+
     });
     await modal.present();
   }
@@ -58,6 +63,7 @@ export class AllPage implements OnInit {
     this.contactService.deleteContactByID(id).subscribe(
       (response: void) => {
         console.log("deleted", response);
+        this.getContact();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
