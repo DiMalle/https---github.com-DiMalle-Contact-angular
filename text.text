@@ -14,5 +14,5 @@ INSERT INTO deplacement VALUES ('D009','Mopti','Bamako','C003','T001');
 none existing function in mysql DECODE()
 select matricule "id", nom "NOM", prenom "PRENOM", DECODE(ville,'Kayes',salaire+10000,'Badiagara',salaire +17000,'Bamako',salaire + 6000,'Sikasso',salaire+ 15000) "Salaire Majore" , DECODE(ville,'Kayes',salaire + 1000,'Badiagara',salaire +1700,'Sikasso',salaire+15000,'Bamako',salaire+6000)-salaire "PRIME DE VILLE" from transporteur;
 
-
+select transporteur.matricule "id", deplacement.depnum "deplacement" from transporteur, deplacement;
 M1@ista@_!
