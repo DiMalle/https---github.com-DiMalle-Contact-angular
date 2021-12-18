@@ -16,3 +16,14 @@ select matricule "id", nom "NOM", prenom "PRENOM", DECODE(ville,'Kayes',salaire+
 
 select transporteur.matricule "id", deplacement.depnum "deplacement" from transporteur, deplacement;
 M1@ista@_!
+
+
+
+The types of Address in Network
+
+A, B, C  Need to make some research about it 
+
+then we have (Les sous reseau)
+les sous reseau allow us divide, segment classes of Network like A ,B or C into smaller fragment to avoid wastage.
+and to do that we first take a look at our mask and then we break it down until we get the required number of IpAddress that we need or want.
+Not to forget we always need to make a minus 2 from our classes.
