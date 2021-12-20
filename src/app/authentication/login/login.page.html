@@ -1,19 +1,22 @@
 <ion-content>
-  <div class="header">
-    <h3>Welcom, Back </h3>
-    <h1>Please Login <br> To Continue</h1>
-  </div>
-  <form [formGroup]="loginForm" novalidate>
-    <h6>{{msg}}</h6>
-    <div class="form">
-      <ion-input formControlName="email" name="email" type="email" placeholder="Email" required></ion-input>
-      <ion-input formControlName="password" name="password" type="password" placeholder="Password" required></ion-input>
+  <div class="img-back">
+    <div class="header">
+      <h3>Welcom, Back </h3>
+      <h1>Please Login <br> To Continue</h1>
     </div>
-    <div class="button">
-      <a (click)="loginUser()"> Login <ion-icon name="chevron-forward-outline"></ion-icon></a>
+    <form [formGroup]="loginForm" novalidate>
+      <h6>{{msg}}</h6>
+      <div class="form">
+        <ion-input formControlName="email" name="email" type="email" placeholder="Email" required></ion-input>
+        <ion-input formControlName="password" name="password" type="password" placeholder="Password" required>
+        </ion-input>
+      </div>
+      <div class="button">
+        <a (click)="loginUser()"> Login <ion-icon name="chevron-forward-outline"></ion-icon></a>
+      </div>
+    </form>
+    <div class="footer">
+      <h3 routerLink="/register">Don't have an account ? <span>Register here</span></h3>
     </div>
-  </form>
-  <div class="footer">
-    <h3 routerLink="/register">Don't have an account ? <span>Register here</span></h3>
   </div>
 </ion-content>
