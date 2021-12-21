@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 import { AlertController, ModalController } from '@ionic/angular';
+import { alertController } from '@ionic/core';
 import { environment } from 'src/environments/environment';
 import { Contact } from '../interface/contact';
 import { DetailContact } from '../interface/detail-contact';
@@ -24,7 +25,7 @@ export class DetailsPage implements OnInit {
   public IMAGE_URL: string = environment.basedApiServer + '/contact/file/';
   public emptyImage: string = 'assets/no-image.jpg';
   contactService: any;
-  constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService, private modalCtrl: ModalController, private alert: AlertController) { }
+  constructor(private route: Router, private activeRoute: ActivatedRoute, private detailService: DetailService, private modalCtrl: ModalController, private altCtrl: AlertController) { }
 
   ngOnInit() {
 
@@ -99,6 +100,24 @@ export class DetailsPage implements OnInit {
         alert(error.message);
       }
     )
+  }
+  public async onDeleteAlert(id) {
+    const alt = await this.altCtrl.create({
+      header: 'Deletion',
+      message: 'Do you want to delete this number ?',
+      buttons: [
+        {
+          text: 'YES',
+          handler: async () => {
+            await this.deleteDetail(id);
+          }
+        },
+        {
+          text: 'Cancel'
+        }
+      ]
+    });
+    await alt.present();
   }
   handleAddToFavorite(contact: Contact) {
     this.contactService.addToFavorite(contact.id).subscribe((res) => {

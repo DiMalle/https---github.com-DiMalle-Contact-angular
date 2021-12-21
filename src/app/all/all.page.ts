@@ -2,7 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { alertController } from '@ionic/core';
+import { Button } from 'selenium-webdriver';
 import { environment } from 'src/environments/environment';
 import { Contact } from '../interface/contact';
 import { User } from '../interface/user';
@@ -22,7 +24,7 @@ export class AllPage implements OnInit {
   public IMAGE_URL: string = environment.basedApiServer + '/contact/file/';
   public emptyImage: string = 'assets/no-image.jpg';
 
-  constructor(private contactService: ContactService, private modalCtrl: ModalController, private route: Router) { }
+  constructor(private contactService: ContactService, private modalCtrl: ModalController, private route: Router, private alterCtrl: AlertController) { }
 
   ngOnInit() {
     this.getContact();
@@ -76,4 +78,44 @@ export class AllPage implements OnInit {
   public goToDetails(contact) {
     this.route.navigateByUrl('details?contact=' + contact.id)
   }
+
+  public async onAlert(contactid: number) {
+    const alt = await alertController.create({
+      header: 'Deletion',
+      message: 'Do you really want to delete this contact ?',
+      buttons: [{
+        text: 'YES',
+        handler: async () => {
+          await this.deleteContact(contactid);
+        }
+      },
+      {
+        text: 'Cancel'
+      }
+      ]
+    });
+    await alt.present();
+  }
+  /*
+    public async onAlert() {
+      const alt = await this.alert.create({
+        header: 'Deletion',
+        message: 'Do you want to delete this contact ?',
+        buttons: [
+          {
+            text: 'YES',
+            handler: async () => {
+              await this.deleteDetail(this.contactId);
+            }
+          },
+          {
+            text: 'Cancel'
+          }
+        ]
+      });
+      await alt.present();
+    }
+  
+  */
+
 }
