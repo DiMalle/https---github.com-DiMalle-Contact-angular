@@ -27,3 +27,180 @@ then we have (Les sous reseau)
 les sous reseau allow us divide, segment classes of Network like A ,B or C into smaller fragment to avoid wastage.
 and to do that we first take a look at our mask and then we break it down until we get the required number of IpAddress that we need or want.
 Not to forget we always need to make a minus 2 from our classes.
+
+
+
+create table test (matricule varchar(255) ,nom varchar(255) , prenom varchar(255), dateNaissance date, dateInscription date, coutFormation int, codeCour varchar(255), libelle varchar(255));
+INSERT INTO test VALUES ('MAT','NomCandidat','PreCandidat','1998-01-12','2015-11-05',200000,'C002','Anglais');
+INSERT INTO test VALUES ('MAT','NomCandidat','PreCandidat','1998-01-12','2015-11-11',300000,'C003','Mathematique');
+INSERT INTO test VALUES ('KOTA00','Konare','Fatoumata','2000-11-10','2015-11-15',200000,'C002','Anglais');
+INSERT INTO test VALUES ('THFA95','Thera','Fatoumata','1995-01-25','2015-11-05',200000,'C001','Base de Donnees');
+INSERT INTO test VALUES ('NITE95','Niambele','Tenin','1995-01-15','2015-12-20',200000,'C002','Anglais');
+INSERT INTO test VALUES ('SAAS01','Samake','Assetou','2001-03-20','2016-01-05',200000,'C003','Mathematique');
+INSERT INTO test VALUES ('NITE95','Niambele','Tenin','1995-01-15','2016-01-05',200000,'C004','Francais');
+INSERT INTO test VALUES ('DOAD00','Dolo','Adama','2000-01-20','2016-02-10',200000,'C001','Base de Donnees');
+INSERT INTO test VALUES ('YAAS02','Yalcouye','Assetou','2002-05-14','2016-02-15',200000,'C001','Base de Donnees');
+INSERT INTO test VALUES ('KOFA00','Konare','Fatoumata','2000-11-10','2016-03-02',200000,'C001','Base de Donnees');
+INSERT INTO test VALUES ('COAB00','Coulibaly','Aboubacar','2000-11-10','2016-03-02',200000,'C004','Francais');
+
+
+create table Etudiant(matricule varchar(255) ,nom varchar(255) , prenom varchar(255), dateNaissance date);
+INSERT INTO Etudiant VALUES ('MAT','NomCandidat','PreCandidat','1998-01-12');
+INSERT INTO Etudiant VALUES ('MAT','NomCandidat','PreCandidat','1998-01-12');
+INSERT INTO Etudiant VALUES ('KOTA00','Konare','Fatoumata','2000-11-10');
+INSERT INTO Etudiant VALUES ('THFA95','Thera','Fatoumata','1995-01-25');
+INSERT INTO Etudiant VALUES ('NITE95','Niambele','Tenin','1995-01-15');
+INSERT INTO Etudiant VALUES ('SAAS01','Samake','Assetou','2001-03-20');
+INSERT INTO Etudiant VALUES ('NITE95','Niambele','Tenin','1995-01-15');
+INSERT INTO Etudiant VALUES ('DOAD00','Dolo','Adama','2000-01-20');
+INSERT INTO Etudiant VALUES ('YAAS02','Yalcouye','Assetou','2002-05-14');
+INSERT INTO Etudiant VALUES ('KOFA00','Konare','Fatoumata','2000-11-10');
+INSERT INTO Etudiant VALUES ('COAB00','Coulibaly','Aboubacar','2000-11-10');
+
+
+create table Cours(codeCour varchar(255), libelle varchar(255),coutFormation int);
+INSERT INTO Cours VALUES ('C002','Anglais',200000);
+INSERT INTO Cours VALUES ('C003','Mathematique',300000);
+INSERT INTO Cours VALUES ('C002','Anglais',200000);
+INSERT INTO Cours VALUES ('C001','Base de Donnees',200000);
+INSERT INTO Cours VALUES ('C002','Anglais',200000);
+INSERT INTO Cours VALUES ('C003','Mathematique',200000);
+INSERT INTO Cours VALUES ('C004','Francais',200000);
+INSERT INTO Cours VALUES ('C001','Base de Donnees'200000);
+INSERT INTO Cours VALUES ('C001','Base de Donnees',200000);
+INSERT INTO Cours VALUES ('C001','Base de Donnees',200000);
+INSERT INTO Cours VALUES ('C004','Francais',200000);
+
+create table Incrire(dateInscription date, coutFormation int);
+INSERT INTO Incrire VALUES ('2015-11-05',200000,);
+INSERT INTO Incrire VALUES ('2015-11-11',300000);
+INSERT INTO Incrire VALUES ('2015-11-15',200000);
+INSERT INTO Incrire VALUES ('2015-11-05',200000);
+INSERT INTO Incrire VALUES ('2015-12-20',200000);
+INSERT INTO Incrire VALUES ('2016-01-05',200000);
+INSERT INTO Incrire VALUES ('2016-01-05',200000);
+INSERT INTO Incrire VALUES ('2016-02-10',200000);
+INSERT INTO Incrire VALUES ('2016-02-15',200000);
+INSERT INTO Incrire VALUES ('2016-03-02',200000);
+INSERT INTO Incrire VALUES ('2016-03-02',200000);
+
+
+
+
+INSERT INTO logiciel VALUES ('log1','Oracle 6','1995-05-13','6.2','Unix',3000);
+INSERT INTO logiciel VALUES  ('log2','Oracle 6','1999-09-15','8i','Unix',5600);
+INSERT INTO logiciel VALUES  ('log3','SQL Server','1998-04-12','7','PCNT',3000);
+INSERT INTO logiciel VALUES  ('log4','Front Page','1997-06-03','5','PCWS',500);
+INSERT INTO logiciel VALUES  ('log5','WinDev','1997-05-12','5','PCWS',750);
+INSERT INTO logiciel VALUES  ('log6','SQL Net',NULL,'2.0','Unix',500);
+INSERT INTO logiciel VALUES  ('log7','I.I.S','2002-04-12','2','PCNT',900);
+INSERT INTO logiciel VALUES  ('log8','DreamWeaver 6','2003-09-12','2.0','BeOS',1400);
+
+
+
+
+INSERT INTO Types VALUES ('TX','Terminal X-Windows');
+INSERT INTO Types VALUES  ('Unix','Systeme Unix');
+INSERT INTO Types VALUES  ('PCNT','PC Windows NT');
+INSERT INTO Types VALUES ('PCWS','PC Windows');
+INSERT INTO Types VALUES  ('NC','Network Computer');
+
+
+
+
+Need to check this out
+
+CREATE TABLE ORD (
+  ord_id INT NOT NULL AUTO_INCREMENT,
+  ord_name VARCHAR(50),
+  ord_description VARCHAR(100),
+  PRIMARY KEY (ord_id)
+)
+AUTO_INCREMENT=1;
+
+
+INSERT INTO ORD (ord_name, ord_description) VALUES ('cool order', 'the cool one');
+INSERT INTO ORD (ord_name, ord_description) VALUES ('lame order', 'the lame one');
+INSERT INTO ORD (ord_name, ord_description) VALUES ('stellar order', 'the stellar one');
+INSERT INTO ORD (ord_name, ord_description) VALUES ('last order', 'the last one');
+COMMIT;
+
+
+
+INSERT INTO Segment VALUES ('130.120.80','Brin RDC', NULL);
+INSERT INTO Segment VALUES  ('130.120..81','Brin 1er Etage',NULL);
+INSERT INTO Segment VALUES  ('130.120.82','Brin er Etage', NULL);
+
+
+
+
+INSERT INTO Poste VALUES ('p1','Poste 1','130.120.80','01','TX','s01');
+INSERT INTO Poste VALUES  ('p2','Poste 2','130.120.80','02','Unix','s01');
+INSERT INTO Poste VALUES  ('p3','Poste 3','130.120.80','03','TX','s01');
+INSERT INTO Poste VALUES  ('p4','Poste 4','130.120.80','04','PCWS','s02');
+INSERT INTO Poste VALUES ('p5','Poste 5','130.120.80','05','PCWS','s02');
+INSERT INTO Poste VALUES  ('p6','Poste 6','130.120.80','06','Unix','s03');
+INSERT INTO Poste VALUES ('p7','Poste 7','130.120.80','07','TX','s03');
+INSERT INTO Poste VALUES  ('p8','Poste 8','130.120.81','01','Unix','s11');
+INSERT INTO Poste VALUES  ('p9','Poste 9','130.120.81','02','TX','s11');
+INSERT INTO Poste VALUES  ('p10','Poste 10','130.120.81','03','Unix','s12');
+INSERT INTO Poste VALUES  ('p11','Poste 11','130.120.82','01','PCNT','s21');
+INSERT INTO Poste VALUES  ('p12','Poste 12','130.120.82','02','PCWS','s21');
+
+
+create table Etudiant (ide int PRIMARY key AUTO_INCREMENT,nom varchar(80), classes varchar(80), adresse varchar(80),telephone varchar(30));
+
+
+create table Utilisateur (idu int PRIMARY key AUTO_INCREMENT,nom varchar(80), login varchar(80), password varchar(80));
+
+create table Ordinateur (ido int PRIMARY key AUTO_INCREMENT,marque varchar(30), couleur varchar(30), ram int, disque int, ide int foreign key);
+
+
+
+create table Installer(NumLns int, NPoste varchar(255),NLog varchar(255),DateLns Date, Delai varchar(255));
+
+
+INSERT INTO Installer VALUES (21,'P2','log1','2015-05-03',NULL);
+INSERT INTO Installer VALUES  (22,'P2','log2','2017-09-03',NULL);
+INSERT INTO Installer VALUES  (23,'P4','log5',NULL,NULL);
+INSERT INTO Installer VALUES  (24,'P6','log6','2020-05-03',NULL);
+INSERT INTO Installer VALUES (25,'P6','log1','2020-05-03',NULL);
+INSERT INTO Installer VALUES  (26,'P8','log2','2019-05-03',NULL);
+INSERT INTO Installer VALUES (27,'P8','log6','2020-05-03',NULL);
+INSERT INTO Installer VALUES  (28,'P11','log3','2020-04-03',NULL);
+INSERT INTO Installer VALUES  (29,'P12','log4','2020-04-03',NULL);
+INSERT INTO Installer VALUES  (30,'P11','log7','2020-04-03',NULL);
+INSERT INTO Installer VALUES  (31,'P7','log7','2020-04-03',NULL);
+
+
+
+
+
+create table Etudiant (matricule varchar(255) NOT NUll ,nom varchar(255), prenom varchar(255), dateNaissance date, telephone int, PRIMARY key (matricule));
+
+
+
+INSERT INTO Etudiant VALUES ('NOPRAA','Nom_candidat','Prenom_candidat',NULL,NULL);
+INSERT INTO Etudiant VALUES  ('DEAL98','Dembele','Aly','1998-03-12',553366);
+INSERT INTO Etudiant VALUES  ('TOSI97','Togolo','Sidy','1997-10-18',668877);
+INSERT INTO Etudiant VALUES  ('BASI98','Balde','Sidy Boubacar','1998-07-05',992211);
+INSERT INTO Etudiant VALUES ('KOCH01','Kouyate','Cheick O','2001-08-21',NULL);
+INSERT INTO Etudiant VALUES  ('COAU01','Coulibaly','Augustin','2001-06-14',889966);
+INSERT INTO Etudiant VALUES ('TRSE97','Traore','Seydou','1997-05-09',NULL);
+
+
+
+
+create table Filiere_TAF (Filiere varchar(255) NOT NUll ,Libelle varchar(255), Niveau varchar(255), PRIMARY key(Filiere));
+
+INSERT INTO Filiere_TAF VALUES ('AP','Analyste Programmeur','DUT2');
+INSERT INTO Filiere_TAF VALUES ('IG','Informatique Gestion','DUT2');
+INSERT INTO Filiere_TAF VALUES ('EMI','Electronique MI','DUT2');
+
+
+update etudiant set filiere = 'IG' where matricule = 'BASI98';
+update etudiant set filiere = 'IG' where matricule = 'COAU01';
+
+
+update etudiant set filiere = 'EMI' where matricule = 'KOCH01';
+update etudiant set filiere = 'EMI' where matricule = 'DEAL98';

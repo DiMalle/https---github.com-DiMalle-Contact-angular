@@ -8,7 +8,6 @@ import { AllPageRoutingModule } from './all-routing.module';
 
 import { AllPage } from './all.page';
 import { ModalModule } from '../Modals/modalComponent.module';
-import { SortPipe } from '../pipes/sort.pipe';
 import { SharedModule } from '../Modals/shared.module';
 
 @NgModule({

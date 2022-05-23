@@ -9,8 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from './Modals/modalComponent.module';
-import { ImagePipe } from './pipes/image.pipe';
-import { SortPipe } from './pipes/sort.pipe';
+
 
 @NgModule({
   declarations: [AppComponent],
